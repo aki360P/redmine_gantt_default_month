@@ -1,0 +1,23 @@
+
+<div class='rgdm_settings'>
+
+<%= labelled_form_for :settings, @rgdm_setting,
+                             :url => {:controller => 'rgdm_settings',
+                             :action => 'edit', :project_id => @project, :tab => 'rgdm_settings',
+                             :setting_id => @rgdm_setting.id}, 
+                             :html => {:id => 'rgdm_settings' } do |f| %>
+
+
+  <div class="box tabular">
+    <% cf_ids = CustomField.where(type: 'ProjectCustomField') %>
+    <p>
+      <%= label_tag('settings[customfield_id]', l(:label_rgdm_setting_cf_id)) %>
+      <%= select_tag('settings[customfield_id]', options_for_select(cf_ids.collect{|c| [c.name, c.id]}.insert(0, ""), @rgdm_setting['customfield_id'])) %>
+    </p>
+
+  <%= submit_tag l(:button_save) %>
+
+  </div>
+  <% end %>
+</div>
+
