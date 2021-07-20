@@ -7,9 +7,10 @@ module RgdmGanttHelperPatch
     def initialize(options={})
       super
       puts options
-      aaa = options["project_id"]
-      puts aaa
-      @project = Project.find_by(identifier: aaa)
+      project_id = options["project_id"]
+      puts project_id
+      @project = Project.find_by(identifier: project_id)
+      if @project.present? then
       if @project.module_enabled?(:redmine_gantt_default_month)
         #@date_from = Date.civil(2021,1.1)
         rgdm_setting = RgdmSetting.find_or_create(@project.id)
@@ -21,6 +22,7 @@ module RgdmGanttHelperPatch
         darray = d.split("-")
         @date_from = Date.new(darray[0].to_i,darray[1].to_i,1)
         puts @date_from
+      end
       end
     end
   end
