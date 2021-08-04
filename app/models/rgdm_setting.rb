@@ -15,7 +15,8 @@ class RgdmSetting < ActiveRecord::Base
       rgdm_setting.attributes = { project_id: project_id }
       
       # Set default
-      rgdm_setting.attributes = { customfield_id: 0 }
+      rgdm_setting.attributes = { option: 0 }
+      rgdm_setting.attributes = { default_month: '2000-01-01' }
             
       rgdm_setting.save!
     end

@@ -9,12 +9,19 @@ Redmine::Plugin.register :redmine_gantt_default_month do
   version '0.1.0'
   url 'https://github.com/aki360P/redmine_gantt_default_month_plugin'
   
-  project_module :redmine_gantt_default_month do
+  #project_module :redmine_gantt_default_month do
     permission :rgdm_setting, :rgdm_settings => [:edit]
-  end
+  #end
   
   
   # add tab - project module
-  menu :project_menu, :rgdm, {:controller => 'rgdm', :action => 'index' }, :caption => :label_rgdm, :param => :project_id
-  
+  #menu :project_menu, :rgdm, {:controller => 'rgdm', :action => 'index' }, :caption => :label_rgdm, :param => :project_id
+
+  # setting
+  settings  partial: 'rgdm_global_settings/show',
+            default: {
+              'rgdm_option' => '0',
+              'rgdm_customfield_id' => '0',
+              'rgdm_default_month' => '0'
+            }
 end

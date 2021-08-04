@@ -18,11 +18,10 @@ class RgdmSettingsController < ApplicationController
       redirect_to controller: 'projects',
                   action: 'settings', id: @project, tab: 'rgdm_settings'
     end
-    
+
   end
   
   def show
-    
   end
   
   
@@ -40,6 +39,6 @@ class RgdmSettingsController < ApplicationController
   end
   
   def rgdm_setting_params
-    params.require(:settings).permit('project_id','customfield_id')
+    params.require(:settings).permit('project_id','option','default_month')
   end
 end

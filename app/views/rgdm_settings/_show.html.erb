@@ -7,13 +7,27 @@
                              :setting_id => @rgdm_setting.id}, 
                              :html => {:id => 'rgdm_settings' } do |f| %>
 
+  <% rgdm_global_op = Setting.plugin_redmine_gantt_default_month %>
+    <% case rgdm_global_op['rgdm_option'] %>
+    <% when '0' then str = "none" %>
+    <% when '1' then str = "CustomField - " + rgdm_global_op['rgdm_customfield_id'] %>
+    <% when '2' then str = "Default month - " + rgdm_global_op['rgdm_default_month'] %>
+    <% end %>
+  
+
+  <% rgdm_op0 = @rgdm_setting.option == 0 ? true : false %>
+  <% rgdm_op2 = @rgdm_setting.option == 2 ? true : false %>
 
   <div class="box tabular">
-    <% cf_ids = CustomField.where(type: 'ProjectCustomField') %>
-    <p>
-      <%= label_tag('settings[customfield_id]', l(:label_rgdm_setting_cf_id)) %>
-      <%= select_tag('settings[customfield_id]', options_for_select(cf_ids.collect{|c| [c.name, c.id]}.insert(0, ""), @rgdm_setting['customfield_id'])) %>
-    </p>
+  Current global setting : <%= str %><br>
+  <br>
+  Project setting : <br>
+  <p><%= radio_button_tag('settings[option]', '0', rgdm_op0 ) %>use global setting</p>
+  <p><%= radio_button_tag('settings[option]', '2', rgdm_op2 ) %>set ganttchart default date with
+     <%= date_field_tag 'settings[default_month]', @rgdm_setting.default_month.to_date, size: 10 %>
+     <%= calendar_for('settings[default_month]') %>
+  </p>
+  <br>
 
   <%= submit_tag l(:button_save) %>
 

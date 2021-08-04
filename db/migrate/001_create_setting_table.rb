@@ -5,8 +5,8 @@ class CreateSettingTable < ActiveRecord::CompatibleLegacyMigration.migration_cla
   def self.up
     create_table :rgdm_settings do |t|
       t.column :project_id, :integer
-      t.column :customfield_id, :integer
-      t.column :updated_on, :datetime
+      t.column :option, :integer
+      t.column :default_month, :datetime
     end
   end
 

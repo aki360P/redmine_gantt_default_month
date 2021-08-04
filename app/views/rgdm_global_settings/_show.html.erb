@@ -1,0 +1,19 @@
+
+<div class='settings_for_plugin'>
+  <h2>Global Setting</h2>
+  <% rgdm_op0 = @settings['rgdm_option'] == '0' ? true : false %>
+  <% rgdm_op1 = @settings['rgdm_option'] == '1' ? true : false %>
+  <% rgdm_op2 = @settings['rgdm_option'] == '2' ? true : false %>
+  <% cf_ids = CustomField.where(type: 'ProjectCustomField') %>
+
+  <p><%= radio_button_tag('settings[rgdm_option]', '0', rgdm_op0 ) %>none</p>
+  <p><%= radio_button_tag('settings[rgdm_option]', '1', rgdm_op1 ) %>use project customfield
+     <%= select_tag('settings[rgdm_customfield_id]', options_for_select(cf_ids.collect{|c| [c.name, c.id]}.insert(0, ""), @settings['rgdm_customfield_id'])) %>
+  </p>
+  <p><%= radio_button_tag('settings[rgdm_option]', '2', rgdm_op2 ) %>use default date
+     <%= date_field_tag 'settings[rgdm_default_month]', @settings['rgdm_default_month'], size: 10 %>
+     <%= calendar_for('settings[rgdm_default_month]') %>
+  </p>
+  <br>
+  <p>Note: Specific setting can be overwritten in each project.</p>
+</div>

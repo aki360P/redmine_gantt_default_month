@@ -5,10 +5,20 @@ module RgdmSettings
     extend ActiveSupport::Concern
 
     def project_settings_tabs
-      tabs = super
-      return tabs unless @project.module_enabled?(:redmine_gantt_default_month)
+      
+      #load global setting
+      @setting_rgdm = Setting.plugin_redmine_gantt_default_month
+      @setting_rgdm['rgdm_option'] == '0'
 
-      tabs.tap { |t| t << append_rgdm_tab }.compact
+      #append tabs - Project Enable Module will not show.
+      #Enable with global setting
+      tabs = super
+      if @setting_rgdm.nil? || @setting_rgdm['rgdm_option'] == '0' then
+        return tabs
+      else
+        tabs.tap { |t| t << append_rgdm_tab }.compact
+      end
+      
     end
 
     def append_rgdm_tab
