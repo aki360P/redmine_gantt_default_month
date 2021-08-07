@@ -8,7 +8,6 @@ module RgdmSettings
       
       #load global setting
       @setting_rgdm = Setting.plugin_redmine_gantt_default_month
-      @setting_rgdm['rgdm_option'] == '0'
 
       #append tabs - Project Enable Module will not show.
       #Enable with global setting
