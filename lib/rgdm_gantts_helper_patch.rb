@@ -18,6 +18,10 @@ module RgdmGanttHelperPatch
       project_id = options["project_id"]
       @project = Project.find_by(identifier: project_id)
 
+      #When user apply ganttchart setting
+      #quit plugin
+      return if options["month"].present?
+
       #global view
       if @project.nil? then
         #option1: customfield in specific project -> nothing
