@@ -33,6 +33,7 @@ module RgdmGanttHelperPatch
           d =  setting_rgdm['rgdm_default_month']
           darray = d.split("-")
           @date_from = Date.new(darray[0].to_i,darray[1].to_i,1)
+          @month_from = darray[1].to_i
 
         end
 
@@ -52,12 +53,14 @@ module RgdmGanttHelperPatch
 
             darray = d.split("-")
             @date_from = Date.new(darray[0].to_i,darray[1].to_i,1)
+            @month_from = darray[1].to_i
         
           #option2: default month
           elsif setting_rgdm['rgdm_option'] == '2' then           
             d =  setting_rgdm['rgdm_default_month']
             darray = d.split("-")
             @date_from = Date.new(darray[0].to_i,darray[1].to_i,1)
+            @month_from = darray[1].to_i
 
           end
 
@@ -65,11 +68,13 @@ module RgdmGanttHelperPatch
         elsif setting.option == 2 then 
             d =  setting.default_month
             @date_from = Date.new(d.year,d.month,1)
+            @month_from = d.month
 
         end
       end
     end
-    #@date_from is ganttchart start_date
+    #@date_from is ganttchart start_date. See this file [redmine root]\lib\redmine\helpers\gantt.rb
+    #@month_from is ganttchart start_month and displayed on the header. See this file [redmine root]\lib\redmine\helpers\gantt.rb
 
   end
 end
