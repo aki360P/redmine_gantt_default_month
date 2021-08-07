@@ -1,3 +1,5 @@
 # English strings go here for Rails i18n
 en:
+  redmine_gantt_default_month: "Redmine Gantt Default Month"
+  permission_rgdm_setting: "Edit"
   label_rgdm: "Gantt default month"
