@@ -9,9 +9,8 @@ Redmine::Plugin.register :redmine_gantt_default_month do
   version '1.0.0'
   url 'https://github.com/aki360P/redmine_gantt_default_month'
   
-  project_module :redmine_gantt_default_month do
+  # this plugin permission is included in existing "project" module
     permission :rgdm_setting, :rgdm_settings => [:edit]
-  end
 
   # setting
   settings  partial: 'rgdm_global_settings/show',

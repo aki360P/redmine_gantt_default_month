@@ -1,5 +1,5 @@
 # 日本語 for Rails i18n
 ja:
   project_module_redmine_gantt_default_month: "Redmine Gantt Default Month"
-  permission_rgdm_settings: "Edit"
+  permission_rgdm_setting: "ガント初期表示設定"
   label_rgdm: "ガント初期表示"
