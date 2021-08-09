@@ -35,6 +35,7 @@ Please choose option to enable plugin with administrator plugin configration.
 
 
 Don't forget to give permission to manager role.
+Plugin permisiion is included in exisiting "project" module.
 
 ![plugin configuration](./images/plugin_configuration_02.png "plugin configuration")
 
