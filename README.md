@@ -31,7 +31,12 @@ rake redmine:plugins:migrate NAME=redmine_gantt_default_month VERSION=0 RAILS_EN
 ## Global setting (system administrator)
 Please choose option to enable plugin with administrator plugin configration.
 
-![plugin configuration](./images/setting01.png "plugin configuration")
+![plugin configuration](./images/plugin_configuration_01.png "plugin configuration")
+
+
+Don't forget to give permission to manager role.
+
+![plugin configuration](./images/plugin_configuration_02.png "plugin configuration")
 
 ## Project setting (project manager)
 Project manager can overwrite specific setting as a project default.
