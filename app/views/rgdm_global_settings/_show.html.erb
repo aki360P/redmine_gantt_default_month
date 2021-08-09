@@ -4,7 +4,7 @@
   <% rgdm_op0 = @settings['rgdm_option'] == '0' ? true : false %>
   <% rgdm_op1 = @settings['rgdm_option'] == '1' ? true : false %>
   <% rgdm_op2 = @settings['rgdm_option'] == '2' ? true : false %>
-  <% cf_ids = CustomField.where(type: 'ProjectCustomField') %>
+  <% cf_ids = CustomField.where(type: 'ProjectCustomField', field_format: 'date') %>
 
   <p><%= radio_button_tag('settings[rgdm_option]', '0', rgdm_op0 ) %>none</p>
   <p><%= radio_button_tag('settings[rgdm_option]', '1', rgdm_op1 ) %>use project customfield

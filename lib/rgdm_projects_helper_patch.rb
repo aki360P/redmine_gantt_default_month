@@ -12,7 +12,7 @@ module RgdmSettings
       #append tabs - Project Enable Module will not show.
       #Enable with global setting
       tabs = super
-      if @setting_rgdm.nil? || @setting_rgdm['rgdm_option'] == '0' then
+      if @setting_rgdm['rgdm_option'] == '0' then
         return tabs
       else
         tabs.tap { |t| t << append_rgdm_tab }.compact

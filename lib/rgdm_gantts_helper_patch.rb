@@ -47,13 +47,14 @@ module RgdmGanttHelperPatch
 
           #option1: customfield in this project
           if setting_rgdm['rgdm_option'] == '1' && setting_rgdm['rgdm_customfield_id'] != '0' then
-            d =  CustomValue.where(customized_type: "Project", custom_field_id: setting_rgdm['rgdm_customfield_id']).first.value
+            d =  CustomValue.where(customized_type: "Project", custom_field_id: setting_rgdm['rgdm_customfield_id'])
+            if d.present? then
+              d = d.first.value
 
-            #ToDO : error_check
-
-            darray = d.split("-")
-            @date_from = Date.new(darray[0].to_i,darray[1].to_i,1)
-            @month_from = darray[1].to_i
+              darray = d.split("-")
+              @date_from = Date.new(darray[0].to_i,darray[1].to_i,1)
+              @month_from = darray[1].to_i
+            end
         
           #option2: default month
           elsif setting_rgdm['rgdm_option'] == '2' then           
