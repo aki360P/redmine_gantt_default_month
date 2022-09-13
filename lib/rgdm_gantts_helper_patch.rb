@@ -1,8 +1,6 @@
 #require_dependency 'gantt_helper'
 
-module RgdmGanttHelperPatch
-  module GanttPatch
-    
+module RgdmGanttsHelperPatch
     
     def initialize(options={})
       super
@@ -77,8 +75,7 @@ module RgdmGanttHelperPatch
     #@date_from is ganttchart start_date. See this file [redmine root]\lib\redmine\helpers\gantt.rb
     #@month_from is ganttchart start_month and displayed on the header. See this file [redmine root]\lib\redmine\helpers\gantt.rb
 
-  end
 end
 
-Redmine::Helpers::Gantt.prepend RgdmGanttHelperPatch::GanttPatch
+Redmine::Helpers::Gantt.prepend RgdmGanttsHelperPatch
 

@@ -1,12 +1,12 @@
 require 'redmine'
-require 'rgdm_projects_helper_patch'
-require 'rgdm_gantts_helper_patch'
+require File.expand_path('../lib/rgdm_projects_helper_patch', __FILE__)
+require File.expand_path('../lib/rgdm_gantts_helper_patch', __FILE__)
 
 Redmine::Plugin.register :redmine_gantt_default_month do
   name 'Redmine gantt default month plugin'
   author 'Akinori Iwasaki'
   description 'Preset default month to ganttchart'
-  version '1.0.1'
+  version '1.1.0'
   url 'https://github.com/aki360P/redmine_gantt_default_month'
   
   # this plugin permission is included in existing "project" module

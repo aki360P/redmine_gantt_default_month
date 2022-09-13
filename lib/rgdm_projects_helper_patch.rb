@@ -1,7 +1,6 @@
 require 'projects_helper'
 
-module RgdmSettings
-  module ProjectsHelperPatch
+module RgdmProjectsHelperPatch
     extend ActiveSupport::Concern
 
     def project_settings_tabs
@@ -30,7 +29,7 @@ module RgdmSettings
 
       action
     end
-  end
+
 end
 
-ProjectsController.helper(RgdmSettings::ProjectsHelperPatch)
+ProjectsController.helper(RgdmProjectsHelperPatch)
