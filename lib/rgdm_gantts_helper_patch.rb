@@ -46,7 +46,7 @@ module RgdmGanttsHelperPatch
           #option1: customfield in this project
           if setting_rgdm['rgdm_option'] == '1' && setting_rgdm['rgdm_customfield_id'] != '0' then
             d =  CustomValue.where(customized_id: @project.id, custom_field_id: setting_rgdm['rgdm_customfield_id'])
-            if d.present? then
+            if d.blank? then
               d = d.first.value
 
               darray = d.split("-")
