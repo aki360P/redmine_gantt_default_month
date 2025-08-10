@@ -6,7 +6,7 @@ Redmine::Plugin.register :redmine_gantt_default_month do
   name 'Redmine gantt default month plugin'
   author 'Akinori Iwasaki'
   description 'Preset default month to ganttchart'
-  version '1.1.0'
+  version '1.1.1'
   url 'https://github.com/aki360P/redmine_gantt_default_month'
   
   # this plugin permission is included in existing "project" module
